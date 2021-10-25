@@ -24,6 +24,7 @@
 .node{
   color:#000000;
   text-align:center;
+  vertical-align:middle;
   position:absolute;
   border-radius: 50%;
   display: inline-block;
