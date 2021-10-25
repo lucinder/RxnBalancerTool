@@ -72,10 +72,10 @@ function addCopy(node){
   prd.appendChild(node);
 }
 function clear(){
-  var rNodes = $('#reactants > .node');
-  var pNodes = $('#products > .node');
-  $rNodes.remove();
-  $pNodes.remove();
+  var nodes = document.getElementsByClassName('node');
+  for(let i = 0; i < nodes.length; i++){
+    nodes[i].remove();
+  }
 }
 function doubleElements(){
   var allReactants=$('reactants').find('*');
