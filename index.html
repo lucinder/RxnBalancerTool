@@ -35,16 +35,17 @@
     }
 </style>
 
-  <link rel="stylesheet" href="jquery-ui.min.css">
-	<link rel="stylesheet" href="rxnbalancer.css">
+<link rel="stylesheet" href="jquery-ui.min.css">
+<link rel="stylesheet" href="rxnbalancer.css">
 <script src="external/jquery/jquery.js"></script>
 <script src="jquery-ui.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script><script src="/assets/js/respond.js"></script><!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script><script src="/assets/js/respond.js"></script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]--><!--[if lt IE 8]>
     <link rel="stylesheet" href="/bcore120C/assets/css/ie.css">
-    <![endif]--><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<script src="rxnbalancer.js"></script>
+    <![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<script src="rxnbalancer.js"></script>
 </head>
 
 <body>
@@ -60,7 +61,7 @@
 <div class="container pt-3 bg-dark rounded" id="simulation">
   <div class="row" id="topArea">
     <div class="col" id="buttons">
-      <button type="button" class="btn btn-secondary" onclick="doubleElements()">Clear reaction</button>
+      <button type="button" class="btn btn-secondary" onclick="clear()">Clear reaction</button>
       <button type="button" class="btn btn-secondary" onclick="doubleElements()">Double all current atoms</button>
     </div>
     <div class="col-sm-5 periodictable" id="periodicTable">
@@ -85,8 +86,8 @@
         <button class="col-sm-18 elementbox ptable-diagonal-18" id="p1g18" onclick="addElement(18,1)"><p>He</p></button>
       </div>
       <div class="row period" id="p2">
-        <button class="col-sm-18 elementbox ptable-diagonal-2" id="p2g1"><p>Li</p></button>
-        <button class="col-sm-18 elementbox ptable-diagonal-3" id="p2g2"><p>Be</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-2" id="p2g1" onclick="addElement(1,2)"><p>Li</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-3" id="p2g2" onclick="addElement(2,2)"><p>Be</p></button>
         <div class="col-sm-18 elementbox-empty" id="p2g3"><p></p></div>
         <div class="col-sm-18 elementbox-empty" id="p2g4"><p></p></div>
         <div class="col-sm-18 elementbox-empty" id="p2g5"><p></p></div>
@@ -97,12 +98,12 @@
         <div class="col-sm-18 elementbox-empty" id="p2g10"><p></p></div>
         <div class="col-sm-18 elementbox-empty" id="p2g11"><p></p></div>
         <div class="col-sm-18 elementbox-empty" id="p2g12"><p></p></div>
-        <button class="col-sm-18 elementbox ptable-diagonal-14" id="p2g13"><p>B</p></button>
-        <button class="col-sm-18 elementbox ptable-diagonal-15" id="p2g14"><p>C</p></button>
-        <button class="col-sm-18 elementbox ptable-diagonal-16" id="p2g15"><p>N</p></button>
-        <button class="col-sm-18 elementbox ptable-diagonal-17" id="p2g16"><p>O</p></button>
-        <button class="col-sm-18 elementbox ptable-diagonal-18" id="p2g17"><p>F</p></button>
-        <button class="col-sm-18 elementbox ptable-diagonal-19" id="p2g18"><p>Ne</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-14" id="p2g13" onclick="addElement(13,2)"><p>B</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-15" id="p2g14" onclick="addElement(14,2)"><p>C</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-16" id="p2g15" onclick="addElement(15,2)"><p>N</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-17" id="p2g16" onclick="addElement(16,2)"><p>O</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-18" id="p2g17" onclick="addElement(17,2)"><p>F</p></button>
+        <button class="col-sm-18 elementbox ptable-diagonal-19" id="p2g18" onclick="addElement(18,2)"><p>Ne</p></button>
       </div>
       <div class="row period" id="p3">
         <button class="col-sm-18 elementbox ptable-diagonal-3" id="p3g1"><p>Na</p></button>
