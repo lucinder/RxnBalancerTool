@@ -63,7 +63,7 @@ function addElement(x, y) {
   
   let reactants = document.getElementById('reactants');
   let products = document.getElementById('products');
-  $(".node").draggable();
+  //$(".node").draggable();
   $( node ).draggable({
     containment: reactants
   });
@@ -85,11 +85,13 @@ function doubleElements(){
   let prd = document.getElementById('products');
   var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
   var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
+  let newRctNode = (allReactants[i]).cloneNode(true);
+  let newPrdNode = (allReactants[i]).cloneNode(true);
   for(let i = 0; i < allReactants.length; i++){
-    rct.appendChild((allReactants[i]).cloneNode(true));
+    rct.appendChild(newRctNode);
   }
   for(let i = 0; i < allProducts.length; i++){
-    prd.appendChild((allReactants[i]).cloneNode(true));
+    prd.appendChild(newPrdNode);
   }
 }
 /**
