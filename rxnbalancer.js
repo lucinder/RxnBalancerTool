@@ -47,11 +47,23 @@ function addElement(x, y) {
   let testText = "Reactant Container Found: "+ (rct.length > 0)+ ". Product Container Found: " + (prd.length > 0) + "\nNode size: " + size + ". Node color: " + color + ". Node text: " + text + ". Node font size: " + fontsize;
   let test = document.getElementById('testtext');
   test.innerHTML = testText;
-  let nodeHTML = "<div class=\"node\" id=\"node\" style=\"background-color:" + color + "; width:" + size + "px; height:" + size + "px; font-size:" + fontsize + "px;\">" + text + "</div>";
+  // let nodeHTML = "<div class=\"node\" id=\"node\" style=\"background-color:" + color + "; width:" + size + "px; height:" + size + "px; font-size:" + fontsize + "px;\">" + text + "</div>";
   var node = document.createElement("div");
+  node.className = 'node';
+  node.id = 'node';
+  node.style.background-color = color;
+  node.style.width = size + 'px';
+  node.style.height = size + 'px';
+  node.style.font-size = fontsize + 'px';
+  node.innerHTML = text;
   var node2 = document.createElement("div");
-  node.innerHTML = nodeHTML;
-  node2.innerHTML = nodeHTML;
+  node2.className = 'node';
+  node2.id = 'node';
+  node2.style.background-color = color;
+  node2.style.width = size + 'px';
+  node2.style.height = size + 'px';
+  node2.style.font-size = fontsize + 'px';
+  node2.innerHTML = text;
   rct[0].appendChild(node);
   prd[0].appendChild(node2);
   /**
@@ -63,12 +75,8 @@ function addElement(x, y) {
   
   let reactants = document.getElementById('reactants');
   let products = document.getElementById('products');
-  //$(".node").draggable();
-  $( node ).draggable({
-    containment: reactants
-  });
-  $( node2 ).draggable({
-    containment: products
+  $(".node").draggable({
+    containment: 'parent'
   });
   $(".node").droppable();
 }
