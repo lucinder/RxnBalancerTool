@@ -84,7 +84,7 @@ function clear(){
   let rct = document.getElementById('reactants');
   let prd = document.getElementById('products');
   let rctHTML = "<!-- Reactant nodes go here! -->";
-  let prdHTML = "<!-- Reactant nodes go here! -->";
+  let prdHTML = "<!-- Product nodes go here! -->";
   rct.innerHTML = rctHTML;
   prd.innerHTML = prdHTML;
 }
@@ -93,14 +93,18 @@ function doubleElements(){
   let prd = document.getElementById('products');
   var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
   var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
-  let newRctNode = (allReactants[i]).cloneNode(true);
-  let newPrdNode = (allReactants[i]).cloneNode(true);
   for(let i = 0; i < allReactants.length; i++){
+    let newRctNode = (allReactants[i]).cloneNode(true);
     rct.appendChild(newRctNode);
   }
   for(let i = 0; i < allProducts.length; i++){
+    let newPrdNode = (allReactants[i]).cloneNode(true);
     prd.appendChild(newPrdNode);
   }
+  $(".node").draggable({
+    containment: 'parent'
+  });
+  $(".node").droppable();
 }
 /**
 // ELEMENT DRAGGER for non jquery ui builds
