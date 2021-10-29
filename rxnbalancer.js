@@ -44,9 +44,11 @@ function addElement(x, y) {
   if(x > 0 && y > 0){
     text = ptable[y-1][x-1];
   }
+  /**
   let testText = "Reactant Container Found: "+ (rct.length > 0)+ ". Product Container Found: " + (prd.length > 0) + "\nNode size: " + size + ". Node color: " + color + ". Node text: " + text + ". Node font size: " + fontsize;
   let test = document.getElementById('testtext');
   test.innerHTML = testText;
+  **/
   // let nodeHTML = "<div class=\"node\" id=\"node\" style=\"background-color:" + color + "; width:" + size + "px; height:" + size + "px; font-size:" + fontsize + "px;\">" + text + "</div>";
   var node = document.createElement("div");
   node.className = 'node';
