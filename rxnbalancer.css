@@ -27,14 +27,15 @@
   vertical-align:middle;
   position:absolute;
   border-radius: 50%;
-  display: inline-block;
+  display: flex;
+  align-items:center;
+  justify-content:center;
   cursor:move;
 }
 .nodecontainer{
   display:flex;
   min-width:200px;
   min-height:400px;
-  background-color:red;
 }
 .ptable-diagonal-1{
   background-color:#FFA7A7;
