@@ -1,8 +1,10 @@
 .periodictable{
   display:inline-block;
+  position:relative;
   overflow-x:scroll;
-  overflow-y:normal;
+  overflow-y:auto;
   white-space:nowrap;
+  
 }
 .elementbox{
   text-align:center;
