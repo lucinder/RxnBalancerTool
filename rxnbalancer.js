@@ -37,13 +37,18 @@ const ptable = [
 function addElement(x, y) {
   let rct = document.getElementsByClassName('reactants');
   let prd = document.getElementsByClassName('products');
-  let size = 15 + (x+(y-1)*18);
-  let fontsize = 10 + (x + y)/2;
-  let color = colors[(x+y)-2];
   let text = "";
   if(x > 0 && y > 0){
     text = ptable[y-1][x-1];
   }
+  // custom behavior for lanthanides and actinides
+  if(y > 7){
+    x = 3;
+    y -= 2;
+  }
+  let color = colors[(x+y)-2];
+  let size = 15 + (x+(y-1)*18);
+  let fontsize = 10 + (x + y)/2;
   /**
   let testText = "Reactant Container Found: "+ (rct.length > 0)+ ". Product Container Found: " + (prd.length > 0) + "\nNode size: " + size + ". Node color: " + color + ". Node text: " + text + ". Node font size: " + fontsize;
   let test = document.getElementById('testtext');
