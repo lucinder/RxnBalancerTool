@@ -60,28 +60,35 @@ function addElement(x, y) {
     dragElement(allNodes[i]);
   }
   **/
+  /**
   $( ".node" ).draggable({
     containment: "parent"
-  });
+  }); **/
+  $(".node").draggable();
   $(".node").droppable();
 }
-function addCopy(node){
+function addNode(node){
   let rct = document.getElementById('reactants');
   let prd = document.getElementById('products');
   rct.appendChild(node);
   prd.appendChild(node);
 }
 function clear(){
+  let rct = document.getElementById('reactants');
+  let prd = document.getElementById('products');
+  let rctHTML = "<div class=\"container col-sm-5 nodecontainer reactants\" id=\"reactants\">\n<!-- Reactant nodes go here! -->\n</div>";
+  let prdHTML = "<div class=\"container col-sm-5 nodecontainer products\" id=\"reactants\">\n<!-- Reactant nodes go here! -->\n</div>";
+  rct.innerHTML = rctHTML;
+  prd.innerHTML = prdHTML;
   var nodes = document.getElementsByClassName('node');
   for(let i = 0; i < nodes.length; i++){
     nodes[i].remove();
   }
 }
 function doubleElements(){
-  var allReactants=$('reactants').find('*');
+  var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
   for(let i = 0; i < allReactants.length; i++){
-    copyElement("reactants",allReactants[i]);
-    copyElement("products",allReactants[i]);
+    addNode(allReactants[i]);
   }
 }
 /**
