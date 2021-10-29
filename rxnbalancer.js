@@ -60,18 +60,23 @@ function addElement(x, y) {
     dragElement(allNodes[i]);
   }
   **/
-  /**
-  $( ".node" ).draggable({
-    containment: "parent"
-  }); **/
+  
+  let reactants = document.getElementById('reactants');
+  let products = document.getElementById('products');
   $(".node").draggable();
+  $( node ).draggable({
+    containment: reactants
+  });
+  $( node2 ).draggable({
+    containment: products
+  });
   $(".node").droppable();
 }
 function clear(){
   let rct = document.getElementById('reactants');
   let prd = document.getElementById('products');
-  let rctHTML = "<div class=\"container col-sm-5 nodecontainer reactants\" id=\"reactants\">\n<!-- Reactant nodes go here! -->\n</div>";
-  let prdHTML = "<div class=\"container col-sm-5 nodecontainer products\" id=\"reactants\">\n<!-- Reactant nodes go here! -->\n</div>";
+  let rctHTML = "<!-- Reactant nodes go here! -->";
+  let prdHTML = "<!-- Reactant nodes go here! -->";
   rct.innerHTML = rctHTML;
   prd.innerHTML = prdHTML;
 }
