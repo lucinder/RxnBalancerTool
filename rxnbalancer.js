@@ -93,8 +93,6 @@ function addElement(x, y) {
   node2.innerHTML = text;
   rct[0].appendChild(node);
   prd[0].appendChild(node2);
-  reactants.push(node);
-  products.push(node2);
   /**
   var allNodes = document.getElementsByClassName('node');
   for(let i = 0; i < allNodes.length; i++){
@@ -108,13 +106,17 @@ function addElement(x, y) {
     containment: 'parent'
   });
   $(".node").droppable();
+  reactants.push(node);
+  products.push(node2);
   return [node, node2];
 }
 function clear(){
+  console.log("DEBUG: Clear called");
   let rct = document.getElementById('reactants');
   let prd = document.getElementById('products');
   rct.innerHTML = "<!-- Reactant nodes go here! -->";
   prd.innerHTML = "<!-- Product nodes go here! -->";
+  console.log("New inner html: " + rct.innerHTML);
   while(!reactants.length == 0){
     let cur = reactants.pop();
     cur.parentNode.removeChild(cur);
@@ -128,7 +130,8 @@ function doubleElements(){
   // var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
   const len = reactants.length;
   for(let i = 0; i < len; i++){
-    let newEl = getXY(reactants[i].text);
+    // console.log("Selected node text: " + reactants[i].innerHTML);
+    let newEl = getXY(reactants[i].innerHTML);
     let newNodes = addElement(newEl[0], newEl[1]);
     newNodes[0].style.left += 10;
     newNodes[0].style.top += 10;
