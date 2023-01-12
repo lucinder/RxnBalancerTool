@@ -1,3 +1,5 @@
+let reactants = [];
+let products = [];
 const colors = ["#FFA7A7", // 1
   "#FFBEA6", // 2
   "#FFC8A6", // 3
@@ -86,6 +88,8 @@ function addElement(x, y) {
   node2.innerHTML = text;
   rct[0].appendChild(node);
   prd[0].appendChild(node2);
+  reactants.push(node);
+  products.push(node2);
   /**
   var allNodes = document.getElementsByClassName('node');
   for(let i = 0; i < allNodes.length; i++){
@@ -111,58 +115,14 @@ function clear(){
   nodeCount = 0;
 }
 function doubleElements(){
-  let rct = document.getElementById('reactants');
-  let prd = document.getElementById('products');
-  var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
+  // var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
   // var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
-  for(let i = 0; i < allReactants.length; i++){
-    let newEl = getXY(allReactants[i].text);
+  for(let i = 0; i < reactants.length; i++){
+    let newEl = getXY(reactants[i].text);
     let newNodes = addElement(newEl[0], newEl[1]);
     newNodes[0].style.left += 10;
     newNodes[0].style.top += 10;
     newNodes[1].style.left += 10;
     newNodes[1].style.top += 10;
   }
-  /**
-  $(".node").draggable({
-    containment: 'parent'
-  });
-  $(".node").droppable();
-  **/
 }
-/**
-// ELEMENT DRAGGER for non jquery ui builds
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  elmnt.onmousedown = dragMouseDown;
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
-
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-**/
