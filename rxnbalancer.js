@@ -40,8 +40,9 @@ let nodeCount = 0;
 function getXY(text){
    console.log("DEBUG: Node Text = " + text);
    let x = -1; let y = -1;
-   for(let i = 0; y < ptable.length; y++){
-       if(ptable[i].indexOf(text) != -1){
+   for(let i = 0; i < ptable.length; i++){
+       console.log("Current i: " + i);
+       if(ptable[i].indexOf(text)){
          console.log("DEBUG: Node position in table = " + y + ", " + x);
          y = i; x = ptable[y].indexOf(text);
          break;
@@ -110,10 +111,14 @@ function addElement(x, y) {
 function clear(){
   let rct = document.getElementById('reactants');
   let prd = document.getElementById('products');
-  let rctHTML = "<!-- Reactant nodes go here! -->";
-  let prdHTML = "<!-- Product nodes go here! -->";
-  rct.innerHTML = rctHTML;
-  prd.innerHTML = prdHTML;
+  rct.innerHTML = "<!-- Reactant nodes go here! -->";
+  prd.innerHTML = "<!-- Product nodes go here! -->";
+  while(!reactants.length == 0){
+    let cur = reactants.pop();
+    cur.parentNode.removeChild(cur);
+    cur = products.pop();
+    cur.parentNode.removeChild(cur);
+  }
   nodeCount = 0;
 }
 function doubleElements(){
