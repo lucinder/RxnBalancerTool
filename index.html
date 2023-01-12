@@ -6,13 +6,13 @@
 <meta property="og:locale" content="en_US">
 <meta name="description" content="Chemical Reaction Balancer">
 <meta property="og:description" content="Lucinder's Chemical Reaction Balancer.">
-	<link href="http://lucinder.com/reactions" rel="canonical">
-<meta property="og:url" content="https://lucinder.com/reactions">
+	<link href="https://lucinder.github.io/RxnBalancerTool" rel="canonical">
+<meta property="og:url" content="https://lucinder.github.io/RxnBalancerTool">
 <meta property="og:site_name" content="Lucinder's Chemical Reaction Balancer">
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="Chemical Reaction Balancer">
 <script type="application/ld+json">
-    {"@type":"WebSite","headline":"Lucinder's Reaction Balancer","url":"https://lucinder.com/reactions","description":"Chemical Reaction Balancer","name":"Chemical Reaction Balancer","@context":"https://schema.org"}
+    {"@type":"WebSite","headline":"Lucinder's Reaction Balancer","url":"https://lucinder.github.io/RxnBalancerTool","description":"Chemical Reaction Balancer","name":"Chemical Reaction Balancer","@context":"https://schema.org"}
   </script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://pages-themes.github.io/midnight/assets/css/style.css?v=1cbe0b9ed659bac7e0550a9a2e9a3d26b8deb701" rel="stylesheet">
@@ -56,7 +56,7 @@
   <h2>Chemical Reaction Balancer</h2>
   <div class="row" id="description">
     <blockquote>
-    <p>This page allows you to simulate the balance of a chemical reaction using a drag-and-drop element system. Click on the periodic table on the right to get started!</p>
+    <p>This page allows you to simulate the balance of a chemical reaction using a drag-and-drop element system. Click anywhere on the periodic table below to get started!</p>
       <p id="testtext"></p>
     </blockquote>
   </div>
@@ -65,7 +65,7 @@
   <div class="row justify-content-start" id="topArea">
     <div class="col-3" id="buttons">
       <button type="button" class="btn btn-secondary" onclick="clearElements()">Clear all atoms</button>
-      <button type="button" class="btn btn-secondary" onclick="doubleElements()">Duplicate all atoms</button>
+      <button type="button" class="btn btn-secondary" onclick="doubleElements()" style="margin-top:10px">Duplicate all atoms</button>
     </div>
     <div class="col-9 periodictable" id="periodicTable">
       <div class="row period" id="p1">
