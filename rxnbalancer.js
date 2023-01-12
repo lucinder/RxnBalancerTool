@@ -119,12 +119,12 @@ function clearElements(){
   let prd = document.getElementById('products');
   rct.innerHTML = "<!-- Reactant nodes go here! -->";
   prd.innerHTML = "<!-- Product nodes go here! -->";
-  console.log("New inner html: " + rct.innerHTML);
+  // console.log("New inner html: " + rct.innerHTML);
   while(!reactants.length == 0){
-    let cur = reactants.pop();
-    cur.parentNode.removeChild(cur);
-    cur = products.pop();
-    cur.parentNode.removeChild(cur);
+    reactants.pop();
+    // cur.parentNode.removeChild(cur);
+    products.pop();
+    // cur.parentNode.removeChild(cur);
   }
   nodeCount = 0;
 }
