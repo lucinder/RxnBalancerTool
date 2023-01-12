@@ -38,14 +38,16 @@ const ptable = [
 ];
 let nodeCount = 0;
 function getXY(text){
+   console.log("DEBUG: Node Text = " + text);
    let x = -1; let y = -1;
    for(let i = 0; y < ptable.length; y++){
        if(ptable[i].indexOf(text) != -1){
+         console.log("DEBUG: Node position in table = " + y + ", " + x);
          y = i; x = ptable[y].indexOf(text);
          break;
        }
    }
-   return [x,y];
+   return [x+1,y+1];
 }
 function addElement(x, y) {
   let rct = document.getElementsByClassName('reactants');
