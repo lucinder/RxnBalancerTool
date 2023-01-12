@@ -117,7 +117,8 @@ function clear(){
 function doubleElements(){
   // var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
   // var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
-  for(let i = 0; i < reactants.length; i++){
+  const len = reactants.length;
+  for(let i = 0; i < len; i++){
     let newEl = getXY(reactants[i].text);
     let newNodes = addElement(newEl[0], newEl[1]);
     newNodes[0].style.left += 10;
