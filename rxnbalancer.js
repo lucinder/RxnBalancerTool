@@ -43,14 +43,15 @@ function getXY(text){
    for(let i = 0; i < ptable.length; i++){
        console.log("Current i: " + i);
        if(ptable[i].indexOf(text)){
-         console.log("DEBUG: Node position in table = " + y + ", " + x);
          y = i; x = ptable[y].indexOf(text);
+         console.log("DEBUG: Node position in table = " + y + ", " + x);
          break;
        }
    }
    return [x+1,y+1];
 }
 function addElement(x, y) {
+  console.log("DEBUG: Node position per function call = " + y-1 + ", " + x-1);
   let rct = document.getElementsByClassName('reactants');
   let prd = document.getElementsByClassName('products');
   let text = "";
@@ -63,6 +64,7 @@ function addElement(x, y) {
     y -= 2;
   }
   let color = colors[(x+y)-2];
+  console.log("DEBUG: color = " + color);
   let size = 15 + (x+(y-1)*18);
   let fontsize = 10 + (x + y)/2;
   /**
