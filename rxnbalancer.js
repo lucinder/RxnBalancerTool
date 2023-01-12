@@ -42,7 +42,7 @@ function getXY(text){
    let x = -1; let y = -1;
    for(let i = 0; i < ptable.length; i++){
        console.log("Current i: " + i);
-       if(ptable[i].indexOf(text)){
+       if(ptable[i].indexOf(text) != -1){
          y = i; x = ptable[y].indexOf(text);
          console.log("DEBUG: Node position in table = " + y + ", " + x);
          break;
@@ -51,7 +51,7 @@ function getXY(text){
    return [x+1,y+1];
 }
 function addElement(x, y) {
-  console.log("DEBUG: Node position per function call = " + y-1 + ", " + x-1);
+  console.log("DEBUG: Node position per function call = " + (y-1) + ", " + (x-1));
   let rct = document.getElementsByClassName('reactants');
   let prd = document.getElementsByClassName('products');
   let text = "";
