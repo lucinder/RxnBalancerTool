@@ -34,6 +34,17 @@ const ptable = [
   ["","","","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Tb","Dy","Ho","Er","Tm","Yb","Lu"],
   ["","","","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk","Cf","Es","Fm","Md","No","Lr"]
 ];
+let nodeCount = 0;
+function getXY(text){
+   let x = -1; let y = -1;
+   for(let i = 0; y < ptable.length; y++){
+       if(ptable[i].indexOf(text) != -1){
+         y = i; x = ptable[y].indexOf(text);
+         break;
+       }
+   }
+   return [x,y];
+}
 function addElement(x, y) {
   let rct = document.getElementsByClassName('reactants');
   let prd = document.getElementsByClassName('products');
@@ -57,7 +68,7 @@ function addElement(x, y) {
   // let nodeHTML = "<div class=\"node\" id=\"node\" style=\"background-color:" + color + "; width:" + size + "px; height:" + size + "px; font-size:" + fontsize + "px;\">" + text + "</div>";
   var node = document.createElement("div");
   node.className = 'node';
-  node.id = 'node';
+  node.id = 'node' + nodeCount;
   node.style.backgroundColor = color;
   node.style.width = size + 'px';
   node.style.height = size + 'px';
@@ -65,7 +76,7 @@ function addElement(x, y) {
   node.innerHTML = text;
   var node2 = document.createElement("div");
   node2.className = 'node';
-  node2.id = 'node';
+  node2.id = 'node' + nodeCount;
   node2.style.backgroundColor = color;
   node2.style.width = size + 'px';
   node2.style.height = size + 'px';
@@ -79,13 +90,14 @@ function addElement(x, y) {
     dragElement(allNodes[i]);
   }
   **/
-  
-  let reactants = document.getElementById('reactants');
-  let products = document.getElementById('products');
-  $(".node").draggable({
+  nodeCount++;
+  // let reactants = document.getElementById('reactants');
+  // let products = document.getElementById('products');
+  $(".node").draggable({ // reload drag-drop capabilities for new nodes
     containment: 'parent'
   });
   $(".node").droppable();
+  return [node, node2];
 }
 function clear(){
   let rct = document.getElementById('reactants');
@@ -94,24 +106,27 @@ function clear(){
   let prdHTML = "<!-- Product nodes go here! -->";
   rct.innerHTML = rctHTML;
   prd.innerHTML = prdHTML;
+  nodeCount = 0;
 }
 function doubleElements(){
   let rct = document.getElementById('reactants');
   let prd = document.getElementById('products');
   var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
-  var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
+  // var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
   for(let i = 0; i < allReactants.length; i++){
-    let newRctNode = (allReactants[i]).cloneNode(true);
-    rct.appendChild(newRctNode);
+    let newEl = getXY(allReactants[i].text);
+    let newNodes = addElement(newEl[0], newEl[1]);
+    newNodes[0].style.left += 10;
+    newNodes[0].style.top += 10;
+    newNodes[1].style.left += 10;
+    newNodes[1].style.top += 10;
   }
-  for(let i = 0; i < allProducts.length; i++){
-    let newPrdNode = (allReactants[i]).cloneNode(true);
-    prd.appendChild(newPrdNode);
-  }
+  /**
   $(".node").draggable({
     containment: 'parent'
   });
   $(".node").droppable();
+  **/
 }
 /**
 // ELEMENT DRAGGER for non jquery ui builds
