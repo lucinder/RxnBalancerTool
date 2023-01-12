@@ -69,6 +69,7 @@ function addElement(x, y) {
   var node = document.createElement("div");
   node.className = 'node';
   node.id = 'node' + nodeCount;
+  console.log("DEBUG: Node Id is " + node.id);
   node.style.backgroundColor = color;
   node.style.width = size + 'px';
   node.style.height = size + 'px';
@@ -77,6 +78,7 @@ function addElement(x, y) {
   var node2 = document.createElement("div");
   node2.className = 'node';
   node2.id = 'node' + nodeCount;
+  console.log("DEBUG: Node Id is " + node2.id);
   node2.style.backgroundColor = color;
   node2.style.width = size + 'px';
   node2.style.height = size + 'px';
