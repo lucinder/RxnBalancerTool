@@ -37,6 +37,7 @@ const ptable = [
   ["","","","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk","Cf","Es","Fm","Md","No","Lr"]
 ];
 let nodeCount = 0;
+
 function getXY(text){
    console.log("DEBUG: Node Text = " + text);
    let x = -1; let y = -1;
@@ -50,6 +51,7 @@ function getXY(text){
    }
    return [x+1,y+1];
 }
+
 function addElement(x, y) {
   console.log("DEBUG: Node position per function call = " + (y-1) + ", " + (x-1));
   let rct = document.getElementsByClassName('reactants');
@@ -110,7 +112,8 @@ function addElement(x, y) {
   products.push(node2);
   return [node, node2];
 }
-function clear(){
+
+function clearElements(){
   console.log("DEBUG: Clear called");
   let rct = document.getElementById('reactants');
   let prd = document.getElementById('products');
@@ -125,6 +128,7 @@ function clear(){
   }
   nodeCount = 0;
 }
+
 function doubleElements(){
   // var allReactants= Array.prototype.slice.call(document.getElementById('reactants').querySelectorAll("*")); // get all nodes under the reactant box
   // var allProducts= Array.prototype.slice.call(document.getElementById('products').querySelectorAll("*")); // get all nodes under the product box
